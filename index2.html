@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Ma page</title>
+    <link rel="stylesheet" media="screen" type="text/css" title="Exemple" href="pageWeb.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="data.json"></script>
+    <script src="recupe.js"></script>
+
+<!--      <script src="//code.angularjs.org/snapshot/angular.min.js"></script>-->
+  <!--<script src="//code.angularjs.org/snapshot/angular-animate.js"></script>-->
+<!--   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>-->
+
+</head>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index2.html">Planetarium</a>
+    </div>
+    <div id="navbar" class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="index2.html">Home</a></li>
+        <li><a href="carousel.html">Galerie d'images</a></li>
+        <!--<li><a href="#contact">Contact</a></li>-->
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+<!--<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Planetarium</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="index2.html">Home</a></li>
+      <li><a href="carousel.html">Galerie image</a></li>
+      
+      <li><a href="#">Crédits</a></li>
+    </ul>
+       <form class="navbar-form navbar-right">
+      <div class="input-group">
+       <input type="text" class="form-control" placeholder="Recherche"
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="submit">
+            <i class="glyphicon glyphicon-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</nav>-->
+<body ng-app="ngAnimate"    >
+        <div  style="color:white; background:transparent" class="jumbotron text-center">
+            <h1>SYSTEME SOLAIRE</h1>
+            <p>Projet WEB</p> 
+            <div> </div>
+        </div>
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="buttons">
+                        <button class="planet-button btn btn-lg btn-danger"  href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="1">Planètes</button></div>
+<!--
+                        <tr ng-repeat="x in data">
+                            <td>{{ x.name }}</td>
+                            <td>{{ x.speed }}</td>
+                        </tr>
+-->                     <div class="buttons">
+                        <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="0">Mercure</button>
+                        <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="2" >Venus</button>
+                        <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="3">Terre</button>
+                        <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="4">Mars</button>
+                        <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="5">Jupiter</button>
+                        <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="6">Saturne</button>
+                        <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="7">Uranus</button>
+                        <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="8">Neptune</button>
+                       <!-- <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="9">Pluton</button>-->
+                    </div>
+                        
+                </div>
+                <div  style="background:black; opacity:0.65; color:white" class="col-sm-8 well" >
+          
+    Le système solaire correspond à l'ensemble des astres soumis au champ de gravitation du Soleil.
+Ainsi, il comprend des planètes (Mercure, Vénus, la Terre, Mars, Jupiter, Saturne, Uranus, Neptune par ordre d'éloignement au Soleil) en orbite autour du Soleil et leurs satellites et anneaux, des planètes naines (Pluton, Éris...), des astéroïdes, des comètes, des météorites, des grains interplanétaires.
+Nous savons aujourd'hui que notre système solaire n'est plus unique. Mais c'est celui que nous connaissons le mieux, c'est en effet la "banlieue" de la Terre.<br>
+</br>
+<h4>Quelques citations :</h4>
+</br>         
+" D'innombrables Soleils existent; d'innombrables 
+terres sont en orbite 
+autour de ces soleils de la même façon 
+que les sept planètes tournent 
+autour de notre soleil. 
+Des êtres vivants peuplent ces mondes. "<br>
+Giordano Bruno
+</br>
+</br>
+"Si les astres étaient immobiles, le temps et l'espace 
+n'existeraient plus."<br>
+Maurice Maeterlink
+</br>
+</br>
+" Ce qui est visible ouvre nos regards sur l'invisible "<br>
+Anaxagore
+</br>
+</br>
+"Le connu est fini, l'inconnu infini;
+ce que nous comprenons n'est qu'un îlot perdu
+dans l'océan illimité de l'inexplicable"<br>
+T.H. Huxley
+</br>
+</br>
+" Ce qui est admirable, ce n'est pas que le 
+champ des étoiles soit si vaste, 
+c'est que l'Homme l'ait mesuré."<br>
+Anatole France
+</br>
+</br>
+" La plus belle chose que nous puissions éprouver 
+c'est le mystère des choses." <br>
+Albert Einstein
+</br>
+</br>
+"L'univers m'embarasse, et je ne peux songer que cette horloge existe et n'ait point d'horloger."
+Voltaire France
+
+
+                    
+                    </div>
+    
+            </div>
+        </div>
+     
+    
+    
+    
+    
+    <div class="whitebackground" height="1000px">
+            <div class="firstspeed"> </div>
+            <div class="secspeed"> </div>
+        </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <!-- Modal -->
+        <div id="mymodal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 id="modal-title" class="modal-title">Modal Header</h4> </div>
+                    <div class="modal-body">
+                        <div id="modal-subtitle" class="modal-subtitle" data-dismiss="modal"></div><img id="modal-image" class="modal-image" src="#" />
+
+                        
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
+<select class = "classForSelect" name = "sortTable" id = "sortTable" ng-model = "parameter" ng-change = "dateFilterdateFIsEnabled(parameter)">
+
+ <option disabled> -- Alphabetical -- </option>
+<option value = "dist"> Distances </option>
+<option value = "temperature"> Températures </option>
+<option value = "masse"> Masse  </option>
+
+<h4>Données de la planète: <input type="checkbox" ng-model="myCheck"></h4>                      
+<div ng-show="myCheck">
+                       <!-- <p>Données de la planète</p> -->
+                        <table  class="table table-hover table-striped " >
+                            <tbody>
+                                <tr class="table success">
+                                    <th >Données étudiées</th>
+                                    <th >Valeurs</th>
+                                </tr>
+                                <tr>
+                                    <th name="satellites">Nombres de satellites naturels</th>
+                                    <th id="satellites">Nombres de satellites naturels</th>
+                                    
+                                </tr>
+                               <tr>
+                                    <th name="dist">Distance au soleil</th>
+                                    <th id="dist">Distance au soleil</th>
+                               </tr>
+                                
+                                <tr>
+                                    <th name="temperature">Température moyenne</th>
+                                    <th id="temperature">Température moyenne</th>
+                                </tr>
+                                
+                                <tr>
+                                    <th name="masse">Masse</th>
+                                    <th id="masse">Masse</th>
+                                </tr>
+                                <tr>
+                                    <th name="rotation">Durée de rotation autour du soleil</th>
+                                    <th id="rotation">Durée de rotation autour du soleil</th>
+                                </tr>
+                                <tr>
+                                    <th name="rotation2">Durée de rotation de la planète</th>
+                                    <th id="rotation2">Durée de rotation de la planète</th>
+                                </tr>
+                                <tr>
+                                    <th name="diametre">Diamètre équatorial</th>
+                                    <th id="diametre">Diamètre équatorial</th>
+                                </tr>
+                               
+                            </tbody>
+                        </table>
+                        </div>
+        
+                        
+ 
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+          
+           </div>  
+</body>
+
+</html>
