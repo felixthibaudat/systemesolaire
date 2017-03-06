@@ -15,6 +15,12 @@ $("#mymodal").on("hidden.bs.modal", function(){
                 document.getElementById("masse").innerHTML = "";
                 document.getElementById("rotation").innerHTML = "";
                 document.getElementById("diametre").innerHTML = "";
+                document.getElementById("liberation").innerHTML = "";
+                document.getElementById("orbite").innerHTML = "";
+                document.getElementById("inclinaison").innerHTML = "";
+                document.getElementById("accel").innerHTML = "";
+                document.getElementById("pression").innerHTML = "";
+
 
                 
 
@@ -25,14 +31,18 @@ $("#mymodal").on("hidden.bs.modal", function(){
                 var maplanette = mydata[idPlanet];
                 document.getElementById("modal-title").innerHTML = maplanette.name;
                 document.getElementById("modal-image").src = maplanette.imgpath;
-                document.getElementById("satellites").src = maplanette.satellites;
+                document.getElementById("satellites").innerHTML = maplanette.satellites;
                 document.getElementById("dist").innerHTML = maplanette.dist;
                 document.getElementById("temperature").innerHTML = maplanette.temperature;
                 document.getElementById("masse").innerHTML = maplanette.masse;
                 document.getElementById("rotation").innerHTML = maplanette.rotation;
                 document.getElementById("rotation2").innerHTML = maplanette.rotation2;
                 document.getElementById("diametre").innerHTML = maplanette.diametre;
-                
+                document.getElementById("liberation").innerHTML = maplanette.liberation;
+                document.getElementById("orbite").innerHTML = maplanette.orbite;
+                document.getElementById("inclinaison").innerHTML = maplanette.inclinaison;
+                document.getElementById("accel").innerHTML = maplanette.accel;
+                document.getElementById("pression").innerHTML = maplanette.pression;
 
             };
         /* for(var i=0;i < input_values.length;i++){

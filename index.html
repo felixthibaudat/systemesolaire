@@ -79,7 +79,7 @@
                             <td>{{ x.speed }}</td>
                         </tr>
 -->                     <div class="buttons">
-                        <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="0">Mercure</button>
+                        <button class="planet-button btn btn-danger btn-md col" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="0">Mercure</button>
                         <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="2" >Venus</button>
                         <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="3">Terre</button>
                         <button class="planet-button btn btn-danger btn-md" href="#" data-toggle="modal" data-target="#mymodal" onclick="populateModal(this.value)" value="4">Mars</button>
@@ -172,17 +172,17 @@ Voltaire France
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 id="modal-title" class="modal-title">Modal Header</h4> </div>
                     <div class="modal-body">
-                        <div id="modal-subtitle" class="modal-subtitle" data-dismiss="modal"></div><img id="modal-image" class="modal-image" src="#" />
+                        <div id="modal-subtitle" class="modal-subtitle" data-dismiss="modal"></div><img id="modal-image" class="modal-image col-md-3 col-sm-5 col-xs-10 col-lg-12" src="#" />
 
                         
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
-<select class = "classForSelect" name = "sortTable" id = "sortTable" ng-model = "parameter" ng-change = "dateFilterdateFIsEnabled(parameter)">
+<!--<select class = "classForSelect" name = "sortTable" id = "sortTable" ng-model = "parameter" ng-change = "dateFilterdateFIsEnabled(parameter)">
 
  <option disabled> -- Alphabetical -- </option>
 <option value = "dist"> Distances </option>
 <option value = "temperature"> Températures </option>
-<option value = "masse"> Masse  </option>
+<option value = "masse"> Masse  </option></br>-->
 
 <h4>Données de la planète: <input type="checkbox" ng-model="myCheck"></h4>                      
 <div ng-show="myCheck">
@@ -199,8 +199,8 @@ Voltaire France
                                     
                                 </tr>
                                <tr>
-                                    <th name="dist">Distance au soleil</th>
-                                    <th id="dist">Distance au soleil</th>
+                                    <th name="dist">Distance moy au soleil en million de kilomètre</th>
+                                    <th id="dist">Distance moy au soleil en million de kilomètre</th>
                                </tr>
                                 
                                 <tr>
@@ -224,7 +224,26 @@ Voltaire France
                                     <th name="diametre">Diamètre équatorial</th>
                                     <th id="diametre">Diamètre équatorial</th>
                                 </tr>
-                               
+                                <tr>
+                                    <th name="liberation">Vitesse de libération</th>
+                                    <th id="liberation">Vitesse de libération</th>
+                                </tr>
+                                 <tr>
+                                    <th name="orbite">Vitesse orbitale de la planète</th>
+                                    <th id="orbite">Vitesse orbitale de la planète</th>
+                                </tr>
+                                 <tr>
+                                    <th name="inclinaison">Inclinaison de l'équateur sur l'orbite </th>
+                                    <th id="inclinaison">Inclinaison de l'équateur sur l'orbite</th>
+                                </tr>
+                                <tr>
+                                    <th name="accel">Accélération de la pesanteur </th>
+                                    <th id="accel">Accélération de la pesanteur</th>
+                                </tr>
+                                <tr>
+                                    <th name="pression">Pression à la surface</th>
+                                    <th id="pression">Pression à la surface</th>
+                                </tr>
                             </tbody>
                         </table>
                         </div>
