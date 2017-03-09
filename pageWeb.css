@@ -48,6 +48,11 @@ table
 .planet-button:hover > .line{
     
 }
+.classForSelect{
+    color: black;
+    text-align: center;
+    margin-top: 5px;
+}
 
 /*#menu-demo2, #menu-demo2 ul{
 padding:0;

@@ -2,7 +2,7 @@
 var mydata;
             window.onload = function () {
                 mydata = JSON.parse(data);
-                console.log(mydata[0].name);
+                console.log(mydata);
 
             }
 
@@ -26,25 +26,31 @@ $("#mymodal").on("hidden.bs.modal", function(){
 
 
 });
-            function populateModal(idPlanet) {
-                console.log("my name: " + mydata[idPlanet].name);
-                var maplanette = mydata[idPlanet];
-                document.getElementById("modal-title").innerHTML = maplanette.name;
-                document.getElementById("modal-image").src = maplanette.imgpath;
-                document.getElementById("satellites").innerHTML = maplanette.satellites;
-                document.getElementById("dist").innerHTML = maplanette.dist;
-                document.getElementById("temperature").innerHTML = maplanette.temperature;
-                document.getElementById("masse").innerHTML = maplanette.masse;
-                document.getElementById("rotation").innerHTML = maplanette.rotation;
-                document.getElementById("rotation2").innerHTML = maplanette.rotation2;
-                document.getElementById("diametre").innerHTML = maplanette.diametre;
-                document.getElementById("liberation").innerHTML = maplanette.liberation;
-                document.getElementById("orbite").innerHTML = maplanette.orbite;
-                document.getElementById("inclinaison").innerHTML = maplanette.inclinaison;
-                document.getElementById("accel").innerHTML = maplanette.accel;
-                document.getElementById("pression").innerHTML = maplanette.pression;
 
+            function populateModal(smaplanette) {
+                    var maplanette = JSON.parse(smaplanette);
+
+                   
+                    document.getElementById("modal-title").innerHTML = maplanette.name;
+                    document.getElementById("modal-image").src = maplanette.imgpath;
+                    document.getElementById("satellites").innerHTML = maplanette.satellites;
+                    document.getElementById("dist").innerHTML = maplanette.dist;
+                    document.getElementById("temperature").innerHTML = maplanette.temperature;
+                    document.getElementById("masse").innerHTML = maplanette.masse;
+                    document.getElementById("rotation").innerHTML = maplanette.rotation;
+                    document.getElementById("rotation2").innerHTML = maplanette.rotation2;
+                    document.getElementById("diametre").innerHTML = maplanette.diametre;
+                    document.getElementById("liberation").innerHTML = maplanette.liberation;
+                    document.getElementById("orbite").innerHTML = maplanette.orbite;
+                    document.getElementById("inclinaison").innerHTML = maplanette.inclinaison;
+                    document.getElementById("accel").innerHTML = maplanette.accel;
+                    document.getElementById("pression").innerHTML = maplanette.pression;
+                
             };
+
+
+
+
         /* for(var i=0;i < input_values.length;i++){
                     if(parameter != 0){
                                 output_values.push(input_values[i].parameter);
