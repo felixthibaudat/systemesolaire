@@ -44,11 +44,94 @@
                 }
             }
             });
+app.controller('changeInformationPlanet', function($scope){
+            $scope.changeInformation = function(paramUser) {
+                // Initialization
+                $scope.paramUser = paramUser;
+                $scope.distIsEnabled = false;
+                $scope.tempIsEnabled = false;
+                $scope.masseIsEnabled = false;
+                $scope.rotIsEnabled = false;
+                $scope.rot2IsEnabled = false;
+                $scope.inclinaisonIsEnabled = false;
+
+                for (var i = 0; i <= dataPlanet.length; i++) {
+                    console.log(dataPlanet[0].name);
+                    console.log(typeof(dataPlanet[i].name));
+                    namePlanet[i] = dataPlanet[i].name;
+
+                    if ($scope.paramUser.indexOf("dist") !== -1) {
+                        $scope.distIsEnabled = true;
+                        $scope.userChoice = "Distance";
+                        $scope.paramUser = "dist";
+                        infoUser[i] = dataPlanet[i].dist;
+                    } else if ($scope.paramUser.indexOf("temperature") !== -1) {
+                        $scope.tempIsEnabled = true;
+                        $scope.userChoice = "Température";
+                        $scope.paramUser = "temperature";
+                        //planet[i].infoUser = dataPlanet[i].temperature;
+                    } else if ($scope.paramUser.indexOf("masse") !== -1) {
+                        $scope.masseIsEnabled = true;
+                        planet[i].infoUser = dataPlanet[i].masse;
+                    } else if ($scope.paramUser.indexOf("rotation") !== -1) {
+                        $scope.rotIsEnabled = true;
+                        planet[i].infoUser = dataPlanet[i].rotation;
+                    } else if ($scope.paramUser.indexOf("rotation2") !== -1) {
+                        $scope.rot2IsEnabled = true;
+                        planet[i].infoUser = dataPlanet[i].rotation2;
+                    } else if ($scope.paramUser.indexOf("inclinaison") !== -1) {
+                        $scope.inclinaisonIsEnabled = true;
+                        planet[i].infoUser = dataPlanet[i].inclinaison;
+                    }
+                }
+                //$scope.dataplanet = planet;
+            }
+        });
+
+        app.filter('infoFilter', function(){
+            console.log("Test");
+            return function(input_values, $scope) {
+                    if(typeof(input_values) != "undefined"){
+                        if(typeof(input_values) == "object"){
+                            var output_values = [];
+
+                            //For each planet, check if it's the good parameter
+                            for(var i = 0; i < input_values.length; i++){
+                                output_values[i].name = input_values[i].name;
+                                
+                                if (distIsEnabled == true) {
+                                    output_values[i].infoUser = input_values[i].dist;
+                                } else if (tempIsEnabled == true) {
+                                    output_values[i].infoUser = input_values[i].temp;
+                                } else if (masseIsEnabled == true) {
+                                    output_values[i].infoUser = input_values[i].masse;
+                                } else if (rotIsEnabled == true) {
+                                    output_values[i].infoUser = input_values[i].rotation;
+                                } else if (rot2IsEnabled == true) {
+                                    output_values[i].infoUser = input_values[i].rotation2;
+                                } else if (inclinaisonIsEnabled == true) {
+                                    output_values[i].infoUser = input_values[i].inclinaison;
+                                }
+
+                            }
+                        }
+                    } else {
+                        throw("You apply this filter to an undefined object");
+                    }
+            }
+        });
+
+
 
         
 
 
 </script>
+<style type="text/css">
+    body {text-align: center;} /* Pour centrer dans IE */
+    table {margin: 0 auto;} /* Pour centrer dans FF */
+
+    </style>
 </head>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -110,16 +193,132 @@
         <option value="x"> {{x}} </option>
     </select>  -->
 
-<select class = "classForSelect" name = "sortTable" id = "sortTable" ng-model = "parameter" ng-change = "dateFilterdateFIsEnabled(parameter)">
-     <option disabled> --Données pour chaque planète-- </option>
+<!--<select class = "classForSelect" name = "sortTable" id = "sortTable" ng-model = "parameter" ng-change = "changeInformation(parameter)">
+     <option value="" disabled> --Données pour chaque planète-- </option>
     <option value = "dist"> Distances </option>
     <option value = "temperature"> Températures </option>
-<option value = "masse"> Masse </option></br>
+<option value = "masse"> Masses </option></br>
 
-</select>
+</select>-->
+<h4>Distances des planètes <input type="checkbox" ng-model="myCheck"></h4>                      
+<div ng-show="myCheck">
+<table classe ="table ">
+
+    <tbody>
+        <tr class="success">
+                                    <td >Planètes</td>
+                                    <td >Distances</td>
+                                    
+                                </tr>
+
+                                
+                                
+                                <tr ng-repeat="x in dataplanet" >
+                                    <th>{{x.name}}</th>
+                                    <th class="infoTable">{{x.dist}}</th>
+                                    
+                                </tr>
+                                
+    </tbody>
+</table>
+</div>
+<h4>Températures des planètes <input type="checkbox" ng-model="myCheck2"></h4>                      
+<div ng-show="myCheck2">
+<table classe ="table ">
+
+    <tbody>
+        <tr class="success">
+                                    <td >Planètes</td>
+                                    
+                                    <td >Températures</td>
+                                   
+                                </tr>
+
+                                
+                                
+                                <tr ng-repeat="x in dataplanet" >
+                                    <th>{{x.name}}</th>
+                                    
+                                    <th class="infoTable">{{x.temperature}}</th>
+                                    
+                                </tr>
+                                
+    </tbody>
+</table>
+</div>
+<h4>Durées de rotation des planètes autour du soleil <input type="checkbox" ng-model="myCheck3"></h4>                      
+<div ng-show="myCheck3">
+<table classe ="table ">
+
+    <tbody>
+        <tr class="success">
+                                    <td >Planètes</td>
+                                    <td >Durées</td>
+                                    
+                                </tr>
+
+                                
+                                
+                                <tr ng-repeat="x in dataplanet" >
+                                    <th>{{x.name}}</th>
+                                    <th class="infoTable">{{x.rotation}}</th>
+                                    
+                                </tr>
+                                
+    </tbody>
+</table>
+</div>
+<h4>Durées de rotation des planètes<input type="checkbox" ng-model="myCheck4"></h4>                      
+<div ng-show="myCheck4">
+<table classe ="table ">
+
+    <tbody>
+        <tr class="success">
+                                    <td >Planètes</td>
+                                    
+                                    <td >Durées</td>
+                                   
+                                </tr>
+
+                                
+                                
+                                <tr ng-repeat="x in dataplanet" >
+                                    <th>{{x.name}}</th>
+                                    
+                                    <th class="infoTable">{{x.rotation2}}</th>
+                                    
+                                </tr>
+                                
+    </tbody>
+</table>
+</div>
+<h4>Masses des planètes <input type="checkbox" ng-model="myCheck5"></h4>                      
+<div ng-show="myCheck5">
+<table classe ="table ">
+
+    <tbody>
+        <tr class="success">
+                                    <td >Planètes</td>
+                                    
+                                    <td >Masses</td>
+                                   
+                                </tr>
+
+                                
+                                
+                                <tr ng-repeat="x in dataplanet" >
+                                    <th>{{x.name}}</th>
+                                    
+                                    <th class="infoTable">{{x.masse}}</th>
+                                    
+                                </tr>
+                                
+    </tbody>
+</table>
+</div>
 <!-- {{mydata}} -->
 <!-- <div ng-repeat="this.mydata"></div> -->
-                 </div>
+</div>
  <div  style="background:black; opacity:0.65; color:white" class="col-sm-8 well" >  
     Le système solaire correspond à l'ensemble des astres soumis au champ de gravitation du Soleil.
 Ainsi, il comprend des planètes (Mercure, Vénus, la Terre, Mars, Jupiter, Saturne, Uranus, Neptune par ordre d'éloignement au Soleil) en orbite autour du Soleil et leurs satellites et anneaux, des planètes naines (Pluton, Éris...), des astéroïdes, des comètes, des météorites, des grains interplanétaires.
@@ -163,7 +362,9 @@ Albert Einstein
 </br>
 </br>
 "L'univers m'embarasse, et je ne peux songer que cette horloge existe et n'ait point d'horloger."
-Voltaire France
+Voltaire France 
+</br>
+</br>
 
 
                     
@@ -249,10 +450,10 @@ Voltaire France
                                     <th name="accel">Accélération de la pesanteur </th>
                                     <th id="accel">Accélération de la pesanteur</th>
                                 </tr>
-                                <tr>
+                                <!--<tr>
                                     <th name="pression">Pression à la surface</th>
                                     <th id="pression">Pression à la surface</th>
-                                </tr>
+                                </tr>-->
                             </tbody>
                         </table>
 </div>

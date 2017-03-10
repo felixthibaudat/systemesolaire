@@ -51,7 +51,13 @@ table
 .classForSelect{
     color: black;
     text-align: center;
-    margin-top: 5px;
+}
+.table{
+    text-align: center;
+    color : black;
+}
+.infoTable{
+    text-align: center;
 }
 
 /*#menu-demo2, #menu-demo2 ul{

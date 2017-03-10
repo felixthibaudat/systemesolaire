@@ -19,7 +19,6 @@ $("#mymodal").on("hidden.bs.modal", function(){
                 document.getElementById("orbite").innerHTML = "";
                 document.getElementById("inclinaison").innerHTML = "";
                 document.getElementById("accel").innerHTML = "";
-                document.getElementById("pression").innerHTML = "";
 
 
                 
@@ -44,7 +43,6 @@ $("#mymodal").on("hidden.bs.modal", function(){
                     document.getElementById("orbite").innerHTML = maplanette.orbite;
                     document.getElementById("inclinaison").innerHTML = maplanette.inclinaison;
                     document.getElementById("accel").innerHTML = maplanette.accel;
-                    document.getElementById("pression").innerHTML = maplanette.pression;
                 
             };
 
